@@ -20,11 +20,12 @@ class ViewController: UIViewController {
         switchBtn.layer.cornerRadius = switchBtn.frame.height / 2
         switchBtn.backgroundColor = .yellow
         if defaultValue.string(forKey: "theme") == "day"{
-            switchBtn.setImage(UIImage(systemName: "sun.max"), for: .normal)
+
+            switchBtn.setImage(UIImage(systemName: "moon"), for: .normal)
             imageView.image = UIImage(named: "day")
             self.view.backgroundColor = UIColor(named: "MyLightBlue")
         } else {
-            switchBtn.setImage(UIImage(systemName: "moon"), for: .normal)
+            switchBtn.setImage(UIImage(systemName: "sun.max"), for: .normal)
             imageView.image = UIImage(named: "night")
             self.view.backgroundColor = UIColor(named: "MyDarkBlue")
         }
@@ -36,12 +37,13 @@ class ViewController: UIViewController {
     @IBAction func switchBtnAction(_ sender: Any) {
         if defaultValue.string(forKey: "theme") == "day"{
             defaultValue.set("night", forKey: "theme")
-            switchBtn.setImage(UIImage(systemName: "moon"), for: .normal)
             imageView.image = UIImage(named: "night")
+
+            switchBtn.setImage(UIImage(systemName: "sun.max"), for: .normal)
             self.view.backgroundColor = UIColor(named: "MyDarkBlue")
         } else {
             defaultValue.set("day", forKey: "theme")
-            switchBtn.setImage(UIImage(systemName: "sun.max"), for: .normal)
+            switchBtn.setImage(UIImage(systemName: "moon"), for: .normal)
             imageView.image = UIImage(named: "day")
             self.view.backgroundColor = UIColor(named: "MyLightBlue")
         }
